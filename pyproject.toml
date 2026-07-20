@@ -3,11 +3,17 @@ name = "droid-application"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.12"
 dependencies = [
-    "gpiozero>=2.0.1",
-    "nicegui>=3.3.1",
+    "nicegui>=3.6.1",
 ]
 
-[tool.uv]
-exclude-dependencies = ["uvloop"]
+[build-system]
+requires = ["uv_build>=0.9.7,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.setuptools]
+package-dir = {"" = "src"}  # Important that this folder is the name of the folder where all the files sit under.
+
+[tool.setuptools.packages.find]
+where = ["src"]
